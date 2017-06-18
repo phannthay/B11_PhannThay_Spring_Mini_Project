@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashbaord</title>
+</head>
+<body>
+
+    <h3>This is Home Page</h3>
+    <h2>using simple tag</h2>
+   <P th:text="${MESSAGE}"></P>
+    <p th:utext="${MESSAGE}"></p>
+    <h1>Object Attribute</h1>
+    <p th:text="${STUDENT.id}"></p>
+    <p th:text="${STUDENT.name}"></p>
+    <p th:text="${STUDENT.gender}"></p>
+
+    <h1>Object</h1>
+    <div th:object="${STUDENT}">
+        <p th:text="*{id}"></p>
+        <p th:text="*{name}"></p>
+        <p th:text="*{gender}"></p>
+    </div>
+    <h1>Condition</h1>
+    <span th:if="${STUDENT.gender}=='M'">Male</span>
+    <span th:unless="${STUDENT.gender}=='M'">Female</span>
+
+    <h1>Switch</h1>
+    <div th:switch="${STUDENT.gender}">
+        <span th:case="M">Male</span>
+        <span th:case="F">Male</span>
+        <span th:case="*"></span>
+    </div>
+
+    <input th:attr="placeholder=@{Name}">
+    <input th:value="Name">
+
+
+</body>
+</html>
